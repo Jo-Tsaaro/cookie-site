@@ -1,5 +1,5 @@
 function setCookie(name, value, days) {
-  const expires = new Date(Date.now() + days * 86400000).toUTCString();
+  const expires = new Date(Date.now() + days * 1000).toUTCString(); //1000ms = 1s
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
@@ -13,12 +13,12 @@ function alertMsg() {
   const messageBox = document.getElementById("message");
 
   if (!userVisited) {
-    const msg = "Welcome to our NeuBrutalist site!";
+    const msg = "New Visitor!";
     alert(msg); // Optional popup
     messageBox.textContent = msg;
-    setCookie("visited", "yes", 7); // Expires in 7 days
+    setCookie("visited", "yes", 5); // Expires in n * 1s
   } else {
-    const msg = "Welcome back!";
+    const msg = "Old Visitor";
     messageBox.textContent = msg;
   }
 }
