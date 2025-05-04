@@ -75,3 +75,10 @@ button:hover {
   font-weight: bold;
   text-align: center;
 }
+
+.timer-box {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #ff006e;
+  font-weight: bold;
+}
