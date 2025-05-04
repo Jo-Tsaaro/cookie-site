@@ -1,5 +1,5 @@
 function setCookie(name, value, seconds) {
-  const expires = new Date(Date.now() + seconds * 1000).toUTCString();
+  const expires = new Date(Date.now() + seconds * 3000).toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
@@ -15,9 +15,9 @@ function deleteCookie(name) {
 function showGreeting(name, isReturning) {
   const greetingBox = document.getElementById("greeting");
   if (isReturning) {
-    greetingBox.textContent = `Hello, ${name}! Welcome back to our NeuBrutalist site.`;
+    greetingBox.textContent = `Welcome back, ${name}!`;
   } else {
-    greetingBox.textContent = `Hello, ${name}! Welcome to our NeuBrutalist site.`;
+    greetingBox.textContent = `Hello, ${name}!`;
   }
 }
 
@@ -27,11 +27,11 @@ function saveName() {
   if (name) {
     const alreadyVisited = getCookie("visited");
 
-    setCookie("username", name, 10);
-    setCookie("visited", "yes", 10);
+    setCookie("username", name, 30);
+    setCookie("visited", "yes", 30);
 
     showGreeting(name, !!alreadyVisited);
-    startCookieTimer(10);
+    startCookieTimer(30);
   } else {
     alert("Please enter a valid name.");
   }
@@ -59,7 +59,7 @@ function startCookieTimer(seconds) {
       clearInterval(interval);
       timerBox.textContent = "Cookie expired!";
     }
-  }, 1000);
+  }, 3000);
 }
 
 window.onload = function () {
@@ -69,7 +69,7 @@ window.onload = function () {
 
   if (name && visited) {
     showGreeting(name, true);
-    startCookieTimer(10); // Optional: resume timer on load
+    startCookieTimer(30); // Optional: resume timer on load
   } else {
     greetingBox.textContent = "Hello, Guest! Please enter your name above.";
     document.getElementById("timer").textContent = "";

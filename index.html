@@ -4,21 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cookie Site</title>
+  <script src="script.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Cookie Site</h1>
   <main class="interactive">
-    <label for="username">Enter your name:</label>
-    <input type="text" id="username" placeholder="Your name">
-    <div class="button-row">
-      <button onclick="saveName()">Submit</button>
-      <button onclick="resetName()">Reset</button>
+    <div class="left-col">
+      <label for="username">Enter your name:</label>
+      <input type="text" id="username" placeholder="Your name">
+      <div class="button-row">
+        <button onclick="saveName()">Submit</button>
+        <button onclick="resetName()">Reset</button>
+      </div>
     </div>
-    <div id="greeting" class="message-box"></div>
-    <div id="timer" class="timer-box"></div>
-  </main>
-
-  <script src="script.js"></script>
+    <div class="right-col">
+      <div id="greeting" class="message-box"></div>
+      <div id="timer" class="timer-box"></div>
+    </div>
+  </main>  
 </body>
 </html>
