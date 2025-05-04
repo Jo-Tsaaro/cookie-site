@@ -24,7 +24,7 @@ function showGreeting(name) {
 }
 
 function resetName() {
-  setCookie("username", "", -1); // Delete cookie
+  setCookie("username", "", -1);
   document.getElementById("greeting").textContent = "Name has been reset.";
 }
 
