@@ -1,0 +1,4 @@
+function alertMsg() {
+    alert("Hello!");
+  }
+  
