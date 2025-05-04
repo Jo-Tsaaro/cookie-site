@@ -13,7 +13,13 @@
       <h2>Cookies 🍪</h2>
       <button onclick="alertMsg()">Click</button>
     </div>
-    <div id="message" class="message-box"></div>
+    <div class="interactive">
+      <label for="username">Enter your name:</label>
+      <input type="text" id="username" placeholder="Your name">
+      <button onclick="saveName()">Submit</button>
+      <button onclick="resetName()">Reset</button>
+      <div id="greeting" class="message-box"></div>
+    </div>
   </section>
 
   <script src="script.js"></script>

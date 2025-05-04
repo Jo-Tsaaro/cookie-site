@@ -1,5 +1,5 @@
 function setCookie(name, value, days) {
-  const expires = new Date(Date.now() + days * 1000).toUTCString(); //1000ms = 1s
+  const expires = new Date(Date.now() + days * 86400000).toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
@@ -8,17 +8,29 @@ function getCookie(name) {
   return match ? match[2] : null;
 }
 
-function alertMsg() {
-  const userVisited = getCookie("visited");
-  const messageBox = document.getElementById("message");
-
-  if (!userVisited) {
-    const msg = "New Visitor!";
-    alert(msg); // Optional popup
-    messageBox.textContent = msg;
-    setCookie("visited", "yes", 5); // Expires in n * 1s
+function saveName() {
+  const name = document.getElementById("username").value.trim();
+  if (name) {
+    setCookie("username", name, 7);
+    showGreeting(name);
   } else {
-    const msg = "Old Visitor";
-    messageBox.textContent = msg;
+    alert("Please enter a valid name.");
   }
 }
+
+function showGreeting(name) {
+  const greetingBox = document.getElementById("greeting");
+  greetingBox.textContent = `Hello, ${name}! Welcome back.`;
+}
+
+function resetName() {
+  setCookie("username", "", -1); // Delete cookie
+  document.getElementById("greeting").textContent = "Name has been reset.";
+}
+
+window.onload = function () {
+  const name = getCookie("username");
+  if (name) {
+    showGreeting(name);
+  }
+};
