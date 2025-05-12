@@ -31,16 +31,16 @@
     document.cookie = "unclassified_x=uc-1st-999; path=/; SameSite=Lax";
   </script>
 
-  <!-- Analytics (3rd party - Google Analytics) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <!-- Analytics (3rd party - Google Analytics Test ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-000000-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
+    gtag('config', 'UA-000000-2'); // Public test GA ID
   </script>
 
-  <!-- Advertising (3rd party - Facebook Pixel) -->
+  <!-- Advertising (3rd party - Facebook Pixel Test ID) -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -50,15 +50,17 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('init', '407095129484347'); // Facebook Pixel Test ID
     fbq('track', 'PageView');
   </script>
 
-  <!-- Performance (3rd party – Pingdom) -->
+  <!-- Performance (3rd party – Pingdom RUM test script) -->
   <script async src="https://rum-static.pingdom.net/prum.min.js"></script>
 
-  <!-- Unclassified (3rd party - dummy iframe) -->
-  <iframe src="https://example.com/unclassified-cookie" width="1" height="1" style="display:none;"></iframe>
+  <!-- Unclassified (3rd party - iframe to simulate unknown tracker) -->
+  <iframe src="https://httpbin.org/cookies/set?thirdparty_ucookie=uc_val"
+    width="1" height="1" style="display:none;" sandbox="allow-scripts allow-same-origin">
+  </iframe>
 
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css" />
