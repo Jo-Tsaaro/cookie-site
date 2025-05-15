@@ -1,3 +1,5 @@
+
+// Enter name, visitor cookie logic
 function setCookie(name, value, seconds) {
   const expires = new Date(Date.now() + seconds * 3000).toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
@@ -75,20 +77,3 @@ window.onload = function () {
     document.getElementById("timer").textContent = "";
   }
 };
-
-// Cookie Category Simulation
-
-// Essential Cookies (1st party)
-document.cookie = "essential_id=ess123; path=/; SameSite=Lax";
-
-// Analytics Cookies (1st party)
-document.cookie = "analytics_id=ga-1st-456; path=/; SameSite=Lax";
-
-// Performance Cookies (1st party)
-document.cookie = "perf_metric=fastload; path=/; SameSite=Lax";
-
-// Advertising Cookies (1st party)
-document.cookie = "ad_track_id=ad-1st-789; path=/; SameSite=Lax";
-
-// Unclassified Cookies (1st party)
-document.cookie = "unclassified_x=uc-1st-999; path=/; SameSite=Lax";
