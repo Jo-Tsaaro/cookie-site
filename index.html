@@ -28,28 +28,20 @@
     parent_node.appendChild(s);
   })()
   </script>
-
-  <link rel="stylesheet" href="styles.css" />
+  
+  <script src="cart.js" defer></script>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVHPVQH7"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <h1>Cookie Site</h1>
-  <main class="interactive">
-    <div class="left-col">
-      <label for="username">Enter your name:</label>
-      <input type="text" id="username" placeholder="Your name">
-      <div class="button-row">
-        <button onclick="saveName()">Submit</button>
-        <button onclick="resetName()">Reset</button>
-      </div>
-    </div>
-    <div class="right-col">
-      <div id="greeting" class="message-box"></div>
-      <div id="timer" class="timer-box"></div>
-    </div>
-  </main>  
+  
+  <!-- Site body -->
+  <h1>Products</h1>
+  <button onclick="addToCart('Product A', 10)">Add Product A ($10)</button>
+  <button onclick="addToCart('Product B', 15)">Add Product B ($15)</button>
+  <a href="cart.html">Go to Cart</a>
 </body>
 </html>

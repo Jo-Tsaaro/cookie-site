@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <h1>Cart Items</h1>
+    <ul id="cart-items"></ul>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartList = document.getElementById("cart-items");
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.innerText = `${item.product} - $${item.price}`;
+            cartList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
