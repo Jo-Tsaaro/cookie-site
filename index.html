@@ -28,8 +28,8 @@
     parent_node.appendChild(s);
   })()
   </script>
-  
-  <script src="cart.js" defer></script>
+
+  <!-- <script src="cart.js" defer></script> -->
   <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
 <body>
@@ -39,9 +39,51 @@
   <!-- End Google Tag Manager (noscript) -->
   
   <!-- Site body -->
-  <h1>Products</h1>
-  <button onclick="addToCart('Product A', 10)">Add Product A ($10)</button>
-  <button onclick="addToCart('Product B', 15)">Add Product B ($15)</button>
-  <a href="cart.html">Go to Cart</a>
+   <h1>My Store</h1>
+
+  <div class="product">
+    <h2>Product A</h2>
+    <p>Price: $10</p>
+    <button class="add-to-cart" data-id="1" data-name="Product A" data-price="10">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <h2>Product B</h2>
+    <p>Price: $20</p>
+    <button class="add-to-cart" data-id="2" data-name="Product B" data-price="20">Add to Cart</button>
+  </div>
+
+  <script>
+    // Simple localStorage-based cart
+    document.querySelectorAll('.add-to-cart').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const id = this.dataset.id;
+        const name = this.dataset.name;
+        const price = parseFloat(this.dataset.price);
+        const item = {
+          item_id: id,
+          item_name: name,
+          price: price,
+          quantity: 1
+        };
+
+        // Save to localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(item);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Push to dataLayer for GTM
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'add_to_cart',
+          ecommerce: {
+            items: [item]
+          }
+        });
+
+        console.log('Added to cart:', item);
+      });
+    });
+  </script>
 </body>
 </html>
