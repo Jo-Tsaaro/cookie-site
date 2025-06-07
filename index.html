@@ -36,6 +36,34 @@
 
   <!-- <script src="cart.js" defer></script> -->
   <!-- <link rel="stylesheet" href="style.css" /> -->
+
+  <!-- Consent form -->
+  <script>
+        function saveFormData() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const consent = document.getElementById("consent").checked;
+
+            const formData = { name, email, phone, consent };
+            localStorage.setItem("formData", JSON.stringify(formData));
+
+            alert("Form data saved locally!");
+        }
+
+        function loadFormData() {
+            const savedData = localStorage.getItem("formData");
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                document.getElementById("name").value = formData.name;
+                document.getElementById("email").value = formData.email;
+                document.getElementById("phone").value = formData.phone;
+                document.getElementById("consent").checked = formData.consent;
+            }
+        }
+
+        window.onload = loadFormData;
+    </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -44,7 +72,7 @@
   <!-- End Google Tag Manager (noscript) -->
   
   <!-- Site body -->
-   <h1>My Store</h1>
+   <!-- <h1>My Store</h1>
 
   <div class="product">
     <h2>Product A</h2>
@@ -56,33 +84,32 @@
     <h2>Product B</h2>
     <p>Price: $20</p>
     <button class="add-to-cart" data-id="2" data-name="Product B" data-price="20">Add to Cart</button>
-  
+  </div> -->
+
   <h2>Consent Form</h2>
-  <form action="submit_form.php" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <br><br>
+    <form onsubmit="saveFormData(); return false;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-      <br><br>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <br><br>
 
-      <label>
-          <input type="checkbox" name="consent" required>
-          I agree to the terms and conditions.
-      </label>
-      <br><br>
+        <label>
+            <input type="checkbox" id="consent" name="consent" required>
+            I agree to the terms and conditions.
+        </label>
+        <br><br>
 
-      <label for="submitBtn">Click here to submit:</label>
-      <input type="submit" id="submitBtn" value="Submit">
-  </form>
+        <label for="submitBtn">Click here to submit:</label>
+        <input type="submit" id="submitBtn" value="Submit">
+    </form>
   
-  
-  </div>
   <!-- You may style the button by overriding class "cmp-revoke-consent" -->
   <button class="cmp-revoke-consent">Manage Cookie Preferences</button>
 
