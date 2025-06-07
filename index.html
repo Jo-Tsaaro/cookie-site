@@ -85,6 +85,8 @@
   </div>
   <!-- You may style the button by overriding class "cmp-revoke-consent" -->
   <button class="cmp-revoke-consent">Manage Cookie Preferences</button>
+
+  
   <script>
     // Simple localStorage-based cart
     document.querySelectorAll('.add-to-cart').forEach(function(button) {
@@ -116,6 +118,20 @@
         console.log('Added to cart:', item);
       });
     });
+  </script>
+
+  
+  <script src='https://cdn-app5.securiti.ai/consent/form-consent-sdk.js'></script>
+  <script>window.addEventListener('load', function() {
+    FormConsentSDK.initialize({
+        codeGenMetadata:{"formPropertyId":"1","formSelector":"[data-gtm-form-interact-id*=\"0\"]","subjectIdentifiers":[{"name":"Name:","selector":"[name = \"name\"]","isPrimary":false},{"name":"Email:","selector":"[name = \"email\"]","isPrimary":true},{"name":"Phone:","selector":"[name = \"phone\"]","isPrimary":false},{"name":"Click here to submit:","selector":"[value = \"Submit\"]","isPrimary":false}],"consentIdentifiers":[{"type":"checkbox","name":"consent","selector":"[name = \"consent\"]","propertyId":13713,"consentValue":"checked"}],"consentTrigger":{"action":"click","selector":"[type=\"submit\"]"}},
+        url: 'https://app5.securiti.ai/privaci/v1/',
+        authToken:'32c9c281-7428-427e-bab7-183bdfebc9d5',
+        orgId:'1',
+        onConsentSuccess: null,
+        onConsentFailure: null
+    })
+  })
   </script>
 </body>
 </html>
