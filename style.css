@@ -18,6 +18,12 @@ body {
     text-align: left;
 }
 
+.logo {
+    display: block;
+    max-width: 150px; /* Adjust size as needed */
+    margin: 0 auto 20px; /* Center the logo and add spacing below */
+}
+
 /* Headings & Text */
 h2 {
     color: #333;
