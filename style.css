@@ -93,7 +93,7 @@ button {
 button.active {
     opacity: 1;
     cursor: pointer;
-    background: #007aff;
+    background: #007a23;
 }
 
 /* Responsive Adjustments */
