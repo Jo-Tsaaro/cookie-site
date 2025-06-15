@@ -37,33 +37,37 @@
   <!-- <script src="cart.js" defer></script> -->
   <!-- <link rel="stylesheet" href="style.css" /> -->
 
-  <!-- Consent form -->
+  <!-- Consent form Script -->
   <script>
-        function saveFormData() {
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
-            const consent = document.getElementById("consent").checked;
+    document.addEventListener("DOMContentLoaded", () => {
+      const emailInput = document.getElementById("email");
+      const consentOptions = document.getElementsByName("consent");
+      const submitBtn = document.getElementById("submitBtn");
+      const form = document.getElementById("consentForm");
 
-            const formData = { name, email, phone, consent };
-            localStorage.setItem("formData", JSON.stringify(formData));
+      function checkFormValidity() {
+        const emailValue = emailInput.value.trim();
+        const selectedConsent = [...consentOptions].some(option => option.checked);
+                
+        submitBtn.disabled = !(emailValue && selectedConsent);
+      }
 
-            alert("Form data saved locally!");
-        }
+      emailInput.addEventListener("input", checkFormValidity);
+      consentOptions.forEach(option => option.addEventListener("change", checkFormValidity));
 
-        function loadFormData() {
-            const savedData = localStorage.getItem("formData");
-            if (savedData) {
-                const formData = JSON.parse(savedData);
-                document.getElementById("name").value = formData.name;
-                document.getElementById("email").value = formData.email;
-                document.getElementById("phone").value = formData.phone;
-                document.getElementById("consent").checked = formData.consent;
-            }
-        }
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const emailValue = emailInput.value.trim();
+        const selectedConsent = document.querySelector('input[name="consent"]:checked').value;
 
-        window.onload = loadFormData;
-    </script>
+        localStorage.setItem("userConsent", JSON.stringify({ email: emailValue, consent: selectedConsent }));
+                
+        alert("Your consent has been saved locally.");
+        window.location.href = "candidate-profile.html"; // Redirect after submission
+      });
+    });
+  </script>
+
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -86,37 +90,37 @@
     <button class="add-to-cart" data-id="2" data-name="Product B" data-price="20">Add to Cart</button>
   </div> -->
 
-  <h2>Consent Form</h2>
-    <h2>Thanks for Registering!</h2>
-    <p>By providing your registered email address, you consent to us processing your personal data in accordance with our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. You have the right to withdraw your consent at any time.</p>
+  <!-- Consent form Body -->
+ <div class="container">
+    <h2>Confirm Your Consent</h2>
+    <p>We value your privacy. By providing consent, you allow us to process your data responsibly for recruitment purposes while safeguarding your rights. 
+    View our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> for details.</p>
+        
+    <form id="consentForm">
+      <label for="email">Email</label>
+      <p>Provide the exact email address used to register your candidate profile.</p>
+      <input type="email" id="email" name="email" placeholder="Enter your registered email" required>
+            
+      <fieldset>
+        <legend>Your Choice</legend>
+        <div class="radio-option">
+          <input type="radio" id="accept" name="consent" value="accept">
+          <label for="accept"><strong>Accept</strong> – I agree to the processing of my data for recruitment.</label>
+        </div>
+                
+        <div class="radio-option">
+          <input type="radio" id="decline" name="consent" value="decline">
+          <label for="decline"><strong>Decline</strong> – I do not agree. (This will not affect your ability to proceed.)</label>
+          </div>
+      </fieldset>
 
-    <form onsubmit="saveFormData(); return false;">
-        <!-- <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required> -->
-        <br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-
-        <!-- <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required> -->
-        <br><br>
-
-        <label>
-            <input type="checkbox" id="consent" name="consent">
-            I accept the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-        </label>
-        <br><br>
-
-        <label for="submitBtn"></label>
-        <input type="submit" id="submitBtn" value="Submit">
+      <button type="submit" id="submitBtn" disabled>Continue to Candidate Profile</button>
     </form>
+    </div> 
   
   <!-- You may style the button by overriding class "cmp-revoke-consent" -->
   <!-- <button class="cmp-revoke-consent">Manage Cookie Preferences</button> -->
 
-  
   <script>
     // Simple localStorage-based cart
     document.querySelectorAll('.add-to-cart').forEach(function(button) {
