@@ -1,101 +1,103 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial Black', sans-serif;
-}
-
+/* Global Styles */
 body {
-  background: #fffbe6;
-  color: #000;
-  padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f5f7;
+    margin: 0;
+    padding: 20px;
 }
 
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  text-shadow: 3px 3px #ff006e;
+/* Container */
+.container {
+    max-width: 90%;
+    width: 400px;
+    margin: 50px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-/* Layout */
-main.interactive {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+/* Headings & Text */
+h2 {
+    color: #333;
+    font-size: 24px;
 }
 
-/* Left Column */
-.left-col {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+p {
+    color: #444;
+    font-size: 14px;
 }
 
-/* Right Column */
-.right-col {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* Input Fields */
 label {
-  font-weight: bold;
+    font-weight: bold;
+    display: block;
+    margin-top: 16px;
 }
 
-input[type="text"] {
-  padding: 0.75rem;
-  border: 3px solid #000;
-  background: #f2f2f2;
-  font-size: 1rem;
-  box-shadow: 4px 4px #000;
-  width: 100%;
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d1d1d6;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
-.button-row {
-  display: flex;
-  gap: 1rem;
+/* Radio Button Section */
+fieldset {
+    border: none;
+    padding: 12px 0;
+    margin-top: 12px;
 }
 
+/* Radio Options */
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin: 0;
+}
+
+label[for="accept"], label[for="decline"] {
+    font-weight: normal;
+}
+
+label[for="accept"] strong,
+label[for="decline"] strong {
+    font-weight: bold;
+}
+
+/* Submit Button */
 button {
-  padding: 0.5rem 1rem;
-  background: #ff006e;
-  color: #fff;
-  border: 3px solid #000;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 4px 4px #000;
-  transition: background 0.2s ease;
+    background: #0071e3;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    opacity: 0.6; /* Instead of disabled state */
 }
 
-button:hover {
-  background: #ff4d94;
+button.active {
+    cursor: pointer;
+    opacity: 1;
+    background: #007aff;
 }
 
-.message-box {
-  padding: 1rem;
-  border: 3px solid #000;
-  background: #d0f4ff;
-  box-shadow: 4px 4px #000;
-  font-weight: bold;
-  text-align: center;
-}
-
-.timer-box {
-  font-size: 1.1rem;
-  color: #ff006e;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .left-col,
-  .right-col {
-    flex: 1 1 100%;
-  }
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
 }
