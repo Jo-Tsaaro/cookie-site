@@ -40,10 +40,13 @@ label {
     font-weight: bold;
     display: block;
     margin-top: 16px;
+    
 }
 
 input[type="email"] {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 12px;
     border: 2px solid #d1d1d6;
     border-radius: 8px;
@@ -57,6 +60,10 @@ fieldset {
     border: none;
     padding: 12px 0;
     margin-top: 12px;
+}
+
+legend {
+  font-weight: bold;
 }
 
 /* Radio Options */
