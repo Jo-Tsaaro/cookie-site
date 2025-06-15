@@ -85,15 +85,7 @@ button {
     width: 100%;
     transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
     text-align: center;
-    opacity: 0.5; /* Makes disabled state visibly different */
-    cursor: not-allowed; /* Prevents interaction */
-}
-
-/* Active Button State */
-button.active {
-    opacity: 1;
-    cursor: pointer;
-    background: #007a23;
+    opacity: 1; /* Makes disabled state visibly different */
 }
 
 /* Responsive Adjustments */
