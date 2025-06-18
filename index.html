@@ -115,7 +115,7 @@
           </div>
       </fieldset>
 
-      <button type="submit" id="submitBtn" disabled>Continue to Candidate Profile</button>
+      <button type="submit" id="submitBtn" onclick="redirectToUrl()" >Continue to Candidate Profile</button>
     </form>
   </div> 
   
@@ -155,6 +155,12 @@
     });
   </script>
   
+<script>
+  function redirectToUrl() {
+    window.location.href = "https://career012.successfactors.eu/career?company=qatarpetroP&site=&lang=en_US&requestParams=HpvPd7cQTTdhga1F6ju6hDPLlMN42lvzloG1uIhBMCuxLFGvtCQzR88jsTjDN7GAlf3WwcNiCReZGZjcGLhy8hNT3BKTS%2fKLPBk4SzKKUosz8nNSKgrsHRhAgKecA0gKADFbCYNgTn56Zp5bTn55UGphaWZRakppEYNwtA%2fYipzEvHS94JKizLx067WXwp6%2flK12Z2JgqCgA6mUsYWApKSpNBVLFmSWppYUMdQzMEHGGEga%2b5MSi1NSi%2bOT83ILEvEpkWe7CxJLEooLUkqL8gBIGdoIqWECuQJZmTc2LDw0uYWCLL9ZLLkpCltJJM84J9nSs9K6yzPNMKywtyvb2NCxOTwkNMQrwLq%2fwcvQ0igz1DwwrTPF0tK0AAAxxYtY%3d&login_ns=register&_s.crb=cAc5lvMerotN5EBNXZuDy3WSIkL6BmGIqMbCQLN%2fRw0%3d";
+  }
+</script>
+
   <!-- consent form securiti script -->
   <script src='https://cdn-app5.securiti.ai/consent/form-consent-sdk.js'></script>
   <script>window.addEventListener('load', function() {
