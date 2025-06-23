@@ -35,39 +35,86 @@
   
 
   <!-- <script src="cart.js" defer></script> -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Consent form Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const emailInput = document.getElementById("email");
-      const consentOptions = document.getElementsByName("consent");
-      const submitBtn = document.getElementById("submitBtn");
-      const form = document.getElementById("consentForm");
-
-      function checkFormValidity() {
-        const emailValue = emailInput.value.trim();
-        const selectedConsent = [...consentOptions].some(option => option.checked);
-                
-        submitBtn.disabled = !(emailValue && selectedConsent);
-      }
-
-      emailInput.addEventListener("input", checkFormValidity);
-      consentOptions.forEach(option => option.addEventListener("change", checkFormValidity));
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const emailValue = emailInput.value.trim();
-        const selectedConsent = document.querySelector('input[name="consent"]:checked').value;
-
-        localStorage.setItem("userConsent", JSON.stringify({ email: emailValue, consent: selectedConsent }));
-                
-        alert("Your consent has been saved locally.");
-        window.location.href = "candidate-profile.html"; // Redirect after submission
-      });
-    });
-  </script>
-
+  <!-- <link rel="stylesheet" href="style.css" />
+<!-- Adding Style here -->
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+      max-width: 90%;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      max-height: 60px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .radio-group {
+      margin-top: 15px;
+    }
+    .radio-inline {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .radio-inline input[type="radio"] {
+      margin-top: 3px;
+    }
+    .radio-inline span {
+      line-height: 1.4;
+    }
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -76,91 +123,53 @@
   <!-- End Google Tag Manager (noscript) -->
   
   <!-- Site body -->
-   <!-- <h1>My Store</h1>
+<body>
+  <div class="container">
+    <img src="https://uploads.onecompiler.io/43nahaant/43namkk6u/QAPCO-Logo.png" alt="QAPCO Logo" class="logo">
 
-  <div class="product">
-    <h2>Product A</h2>
-    <p>Price: $10</p>
-    <button class="add-to-cart" data-id="1" data-name="Product A" data-price="10">Add to Cart</button>
+    <h2>Confirm Your Consent</h2>
+    <p>
+      We value your privacy. By providing consent, you allow us to process your data responsibly for recruitment purposes while safeguarding your rights. 
+      View our <a href="#">Privacy Policy</a> for details.
+    </p>
+
+    <form action="register.html" method="GET" onsubmit="return validateAndRedirect()">
+      <label for="email">Email Address</label>
+      <p style="font-size: 13px; margin: 5px 0 10px;">Provide the exact email address used to register your candidate profile.</p>
+      <input type="email" id="email" name="email" placeholder="Enter your registered email" required>
+
+      <label>Choose Your Preference</label>
+      <div class="radio-group">
+        <label class="radio-inline">
+          <input type="radio" id="accept" name="consent" value="accept" required checked>
+          <span><strong>Accept</strong> – I agree to the processing of my data for recruitment.</span>
+        </label>
+
+        <label class="radio-inline">
+          <input type="radio" id="decline" name="consent" value="decline">
+          <span><strong>Decline</strong> – I do not agree.</span>
+        </label>
+      </div>
+
+      <button type="submit">Continue to Candidate Profile</button>
+    </form>
   </div>
 
-  <div class="product">
-    <h2>Product B</h2>
-    <p>Price: $20</p>
-    <button class="add-to-cart" data-id="2" data-name="Product B" data-price="20">Add to Cart</button>
-  </div> -->
-
-  <!-- Consent form Body -->
-  <div class="container">
-    <img src="https://qapco.com/storage/2016/06/QAPCO-Logo.png" alt="Company Logo" class="logo">
-    <h2>Confirm Your Consent</h2>
-    <p>We value your privacy. By providing consent, you allow us to process your data responsibly for recruitment purposes while safeguarding your rights. 
-    View our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> for details.</p>
-        
-    <form id="consentForm">
-      <label for="email">Email Address</label>
-      <p>Provide the exact email address used to register your candidate profile.</p>
-      <input type="email" id="email" name="email" placeholder="Enter your registered email" required>
-            
-      <fieldset>
-        <legend>Choose Your Preference</legend>
-        <div class="radio-option">
-          <input type="radio" id="accept" name="consent" value="accept">
-          <label for="accept"><strong>Accept</strong> – I agree to the processing of my data for recruitment.</label>
-        </div>
-                
-        <div class="radio-option">
-          <input type="radio" id="decline" name="consent" value="decline">
-          <label for="decline"><strong>Decline</strong> – I do not agree.</label>
-          </div>
-      </fieldset>
-
-      <button type="submit" id="submitBtn" onclick="redirectToUrl()" >Continue to Candidate Profile</button>
-    </form>
-  </div> 
-  <a href="register.html">Go to Registration Page</a>
-  
-  <!-- You may style the button by overriding class "cmp-revoke-consent" -->
-  <!-- <button class="cmp-revoke-consent">Manage Cookie Preferences</button> -->
-
   <script>
-    // Simple localStorage-based cart
-    document.querySelectorAll('.add-to-cart').forEach(function(button) {
-      button.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const name = this.dataset.name;
-        const price = parseFloat(this.dataset.price);
-        const item = {
-          item_id: id,
-          item_name: name,
-          price: price,
-          quantity: 1
-        };
+    function validateAndRedirect() {
+      const email = document.getElementById('email').value;
+      const consent = document.querySelector('input[name="consent"]:checked').value;
 
-        // Save to localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(item);
-        localStorage.setItem('cart', JSON.stringify(cart));
+      if (consent === 'decline') {
+        alert("You must accept to proceed.");
+        return false;
+      }
 
-        // Push to dataLayer for GTM
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'add_to_cart',
-          ecommerce: {
-            items: [item]
-          }
-        });
-
-        console.log('Added to cart:', item);
-      });
-    });
-  </script>
-  
-<script>
-  function redirectToUrl() {
-    window.location.href = "https://career012.successfactors.eu/career?company=qatarpetroP&site=&lang=en_US&requestParams=HpvPd7cQTTdhga1F6ju6hDPLlMN42lvzloG1uIhBMCuxLFGvtCQzR88jsTjDN7GAlf3WwcNiCReZGZjcGLhy8hNT3BKTS%2fKLPBk4SzKKUosz8nNSKgrsHRhAgKecA0gKADFbCYNgTn56Zp5bTn55UGphaWZRakppEYNwtA%2fYipzEvHS94JKizLx067WXwp6%2flK12Z2JgqCgA6mUsYWApKSpNBVLFmSWppYUMdQzMEHGGEga%2b5MSi1NSi%2bOT83ILEvEpkWe7CxJLEooLUkqL8gBIGdoIqWECuQJZmTc2LDw0uYWCLL9ZLLkpCltJJM84J9nSs9K6yzPNMKywtyvb2NCxOTwkNMQrwLq%2fwcvQ0igz1DwwrTPF0tK0AAAxxYtY%3d&login_ns=register&_s.crb=cAc5lvMerotN5EBNXZuDy3WSIkL6BmGIqMbCQLN%2fRw0%3d";
-  }
-</script>
+      const currentUrl = window.location.href.split('?')[0];
+      const fullUrlWithParam = currentUrl + '?email=' + encodeURIComponent(email);
+      window.location.href = `register.html?originalUrl=${encodeURIComponent(fullUrlWithParam)}&email=${encodeURIComponent(email)}`;
+      return false;
+    }
 
   <!-- consent form securiti script -->
   <script src='https://cdn-app5.securiti.ai/consent/form-consent-sdk.js'></script>
