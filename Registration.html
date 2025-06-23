@@ -2,83 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Registration Page</title>
+  <title>Register</title>
   <style>
     body {
+      background-color: #f4f4f4;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-
     .container {
-      background: white;
-      padding: 20px 30px;
+      background-color: #fff;
       border-radius: 10px;
+      padding: 30px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 350px;
+      width: 400px;
+      max-width: 90%;
     }
-
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      max-height: 60px;
+    }
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-
-    input[type="text"], input[type="email"], input[type="password"] {
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+    input, select {
       width: 100%;
       padding: 10px;
-      margin: 8px 0 15px;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 14px;
     }
-
+    input[readonly] {
+      background-color: #f9f9f9;
+      pointer-events: none;
+    }
+    .original-url {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
     button {
       width: 100%;
-      padding: 10px;
-      background: #28a745;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #007bff;
       color: white;
       border: none;
+      font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
     }
-
     button:hover {
-      background: #218838;
+      background-color: #0056b3;
     }
-
-    .footer {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
+    .back-btn {
+      background-color: #6c757d;
+    }
+    .back-btn:hover {
+      background-color: #5a6268;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <h2>Register</h2>
-    <form action="/submit_registration" method="post">
-      <label for="fullname">Full Name</label>
-      <input type="text" id="fullname" name="fullname" required>
+    <img src="https://uploads.onecompiler.io/43nahaant/43namkk6u/QAPCO-Logo.png" alt="QAPCO Logo" class="logo">
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+    <h2>Candidate Registration</h2>
 
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required>
+    <p class="original-url"><strong>Original URL:</strong> <span id="originalUrlDisplay"></span></p>
 
-      <label for="password">Password</label>
+    <form>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" readonly>
+
+      <label for="retypeEmail">Retype Email</label>
+      <input type="email" id="retypeEmail" name="retypeEmail" readonly>
+
+      <label for="password">Choose Password</label>
       <input type="password" id="password" name="password" required>
 
-      <button type="submit">Register</button>
+      <label for="retypePassword">Retype Password</label>
+      <input type="password" id="retypePassword" name="retypePassword" required>
+
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="country">Country/Region of Residence</label>
+      <select id="country" name="country" required>
+        <option value="">-- Select --</option>
+        <option value="India">India</option>
+        <option value="Qatar">Qatar</option>
+        <option value="USA">USA</option>
+      </select>
+
+      <button type="submit">Continue to Candidate Profile</button>
     </form>
-    <div class="footer">
-      Already have an account? <a href="/login">Login</a>
-    </div>
+
+    <button class="back-btn" onclick="goBack()" style="margin-top: 10px;">Go Back</button>
   </div>
 
+  <script>
+    function disableEditing(id) {
+      const field = document.getElementById(id);
+      field.addEventListener('keydown', e => e.preventDefault());
+      field.addEventListener('paste', e => e.preventDefault());
+      field.addEventListener('contextmenu', e => e.preventDefault());
+    }
+
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const email = params.get('email');
+      const originalUrl = params.get('originalUrl');
+
+      if (email) {
+        document.getElementById('email').value = email;
+        document.getElementById('retypeEmail').value = email;
+        disableEditing('email');
+        disableEditing('retypeEmail');
+      }
+
+      if (originalUrl) {
+        document.getElementById('originalUrlDisplay').textContent = decodeURIComponent(originalUrl);
+      }
+    };
+  </script>
 </body>
 </html>
