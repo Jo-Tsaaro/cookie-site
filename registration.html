@@ -82,7 +82,7 @@
 
     <p class="original-url"><strong>Original URL:</strong> <span id="originalUrlDisplay"></span></p>
 
-    <form>
+    <form onsubmit="return redirectToCandidateProfile()">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" readonly>
 
@@ -109,7 +109,7 @@
         <option value="USA">USA</option>
       </select>
 
-      <button type="submit" onclick="candidateProfile()">Continue to Candidate Profile</button>
+      <button type="submit">Continue to Candidate Profile</button>
     </form>
 
     <button class="back-btn" onclick="goBack()" style="margin-top: 10px;">Go Back</button>
@@ -127,8 +127,9 @@
       window.location.href = 'index.html';
     }
 
-    function candidateProfile() {
-      window.location.href = '#';
+    function redirectToCandidateProfile() {
+      window.location.href = "https://career012.successfactors.eu/career?career_company=qatarpetroP&lang=en_US&company=qatarpetroP&site=&loginFlowRequired=true&_s.crb=f3lSIAyKz9nIfqurkKI1sgdUT2PKwxJAI2YUOQVqdIA%3d";
+      return false; // Prevent actual form submission
     }
 
     window.onload = function () {
