@@ -84,7 +84,8 @@
     
   <!-- consent form securiti script -->
 <script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
-<script>window.addEventListener('load', function() {
+<script>
+window.addEventListener('load', function() {
     FormConsentSDK.initialize({
         codeGenMetadata:{"formPropertyId":"4","formSelector":"[id*=\"registrationForm\"]","subjectIdentifiers":[{"name":"Email Address","selector":"[name = \"email\"]","isPrimary":true}],"consentIdentifiers":[{"type":"radio","name":"consent","selector":"[name = \"consent\"]","propertyId":86,"consentValue":"accept"}],"consentTrigger":{"action":"submit","selector":""}},
         url: 'https://app.eu.securiti.ai/privaci/v1/',
@@ -93,7 +94,8 @@
         onConsentSuccess: null,
         onConsentFailure: null
     })
-})</script>
+})
+</script>
 
 </body>
 </html>
