@@ -1,110 +1,103 @@
-/* Global Styles */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    background-color: #f5f5f7;
-    margin: 0;
-    padding: 20px;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Container */
 .container {
-    max-width: 90%;
-    width: 400px;
-    margin: 50px auto;
-    padding: 24px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
 }
 
 .logo {
-    display: block;
-    max-width: 150px; /* Adjust size as needed */
-    margin: 0 auto 20px; /* Center the logo and add spacing below */
+  display: block;
+  margin: 0 auto 20px;
+  max-height: 50px;
 }
 
-/* Headings & Text */
 h2 {
-    color: #333;
-    font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 p {
-    color: #444;
-    font-size: 14px;
+  font-size: 14px;
+  color: #333;
 }
 
-/* Input Fields */
 label {
-    font-weight: bold;
-    display: block;
-    margin-top: 16px;
-    
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
 }
 
 input[type="email"] {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    border: 2px solid #d1d1d6;
-    border-radius: 8px;
-    outline: none;
-    font-size: 16px;
-    margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-/* Radio Button Section */
-fieldset {
-    border: none;
-    padding: 12px 0;
-    margin-top: 12px;
+.radio-group {
+  margin-top: 15px;
 }
 
-legend {
-  font-weight: bold;
+.radio-inline {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 
-/* Radio Options */
-.radio-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+.radio-inline input[type="radio"] {
+  margin-top: 3px;
 }
 
-input[type="radio"] {
-    margin: 0;
+.radio-inline span {
+  line-height: 1.4;
 }
 
-label[for="accept"], label[for="decline"] {
-    font-weight: normal;
-}
-
-label[for="accept"] strong,
-label[for="decline"] strong {
-    font-weight: bold;
-}
-
-/* Submit Button */
 button {
-    background: #0071e3;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 100%;
-    transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    text-align: center;
-    opacity: 1; /* Makes disabled state visibly different */
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 500px) {
-    .container {
-        width: 100%;
-        padding: 20px;
-    }
+button:hover {
+  background-color: #0056b3;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.helper-text {
+  font-size: 13px;
+  color: #666;
+  margin: 5px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-icon {
+  font-size: 18px;
+  color: #666;
 }
