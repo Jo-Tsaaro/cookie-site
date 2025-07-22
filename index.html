@@ -3,67 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cookie Site</title>
-  <!-- load consent defaults -->
-  <script src="https://https://cdn-app5.securiti.ai
-/consent/cookie_banner/afd75cd2-cbaa-4d9b-8b84-37598fb2e16f
-/220e7806-dd3d-41f5-b7be-43670baa4c4c
-/google_consent_defaults.js">
-</script>
-<!-- Securiti banner -->
-  <script>
-  (function () {
-    var s = document.createElement('script');
-    s.src = 'https://cdn-app5.securiti.ai/consent/cookie-consent-sdk-loader.js';
-    s.setAttribute('data-tenant-uuid', 'afd75cd2-cbaa-4d9b-8b84-37598fb2e16f');
-    s.setAttribute('data-domain-uuid', '220e7806-dd3d-41f5-b7be-43670baa4c4c');
-    s.setAttribute('data-backend-url', 'https://app5.securiti.ai');
-    s.setAttribute('data-skip-css', 'false');
-    s.defer = true;
-    var parent_node = document.head || document.body;
-    parent_node.appendChild(s);
-  })()
-  </script>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WVHPVQH7');</script>
-  <!-- End Google Tag Manager -->
+  <title>Consent Form</title>
   
+  <!-- Google Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
 
-  <!-- <script src="cart.js" defer></script> -->
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-  <!-- Add Style here -->
-  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />  
 
-  <!-- <link rel="stylesheet" href="style.css" />
-<!-- Adding Style here -->
-  
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVHPVQH7"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   
-  <!-- Add body here -->
-   
-  <!-- Site body -->
-  <!-- Privacy Notice Embed -->
-  <a
-    href="https://privacy-central5.securiti.ai/#/notices/8d25803f-12bd-4efc-96a8-151482c03a89"
-    >link text</a
-  >
-  <iframe
-    src="https://privacy-central5.securiti.ai/notice-embed/8d25803f-12bd-4efc-96a8-151482c03a89"
-    style="border: none; width: 100%; height: 800px"
-  ></iframe>
   <!-- Consent Form -->
+  <div class="container">
+    <img
+      src="https://qapco.com/storage/2016/06/QAPCO-Logo.png"
+      alt="QAPCO Logo"
+      class="logo"
+    />
+
+    <h2>Supplier Registration Consent</h2>
+    <p>
+      To process your supplier registration, QAPCO collects and uses personal and business information such as contact details, company documents, and compliance records. Your data will be used only for registration, due diligence, legal compliance, and future procurement communication. For details on how we use and protect your data. View our <a href="https://qapco.com/privacy-policy/">Privacy Policy</a> for details.
+    </p>
+    
+    <form id="registrationForm" method="post">
+      <label for="email">Email Address</label>
+      <p class="helper-text">
+        <span class="material-icons info-icon">info</span>
+        This email address must match the one you plan to use during Candidate
+        Registration in the next step.
+      </p>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <label>Choose Your Preference</label>
+      <div class="radio-group">
+        <label class="radio-inline">
+          <input
+            type="radio"
+            id="accept"
+            name="consent"
+            value="accept"
+            required
+          />
+          <span
+            ><strong>Accept</strong> – I agree to the processing of my data
+            for recruitment.</span
+            >
+        </label>
+
+        <label class="radio-inline">
+          <input type="radio" id="decline" name="consent" value="decline" />
+          <span><strong>Decline</strong> – I do not agree.</span>
+        </label>
+      </div>
+
+      <button type="submit">Continue to Supplier Registration</button>
+    </form>
+  </div>
   
+  <script>
+    document
+      .getElementById("registrationForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.location.href =
+          "https://career012.successfactors.eu/career?company=qatarpetroP"; // Redirect to Qapco Successfactors
+      });
+  </script>
     
   <!-- consent form securiti script -->
   
+
 </body>
 </html>
