@@ -99,16 +99,14 @@
                                 <script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
                                 <script>window.addEventListener('load', function() {
     FormConsentSDK.initialize({
-        codeGenMetadata:{"formPropertyId":"5","formSelector":"[id*=\"registrationForm\"]","subjectIdentifiers":[{"name":"Email Address","selector":"[name = \"email\"]","isPrimary":true}],"consentIdentifiers":[{"type":"radio","name":"consent","selector":"[name = \"consent\"]","propertyId":90,"consentValue":"accept"}],"consentTrigger":{"action":"click","selector":"accept"}},
+        codeGenMetadata:{"formPropertyId":"5","formSelector":"[id*=\"registrationForm\"]","subjectIdentifiers":[{"name":"Email Address","selector":"[name = \"email\"]","isPrimary":true}],"consentIdentifiers":[{"type":"radio","name":"consent","selector":"[name = \"consent\"]","propertyId":91,"consentValue":"accept"}],"consentTrigger":{"action":"submit","selector":""}},
         url: 'https://app.eu.securiti.ai/privaci/v1/',
         authToken:'8c71a8e9-fd17-46f8-aa07-05b0155f9413',
         orgId:'1',
         onConsentSuccess: null,
         onConsentFailure: null
     })
-})</script>  
-  
-    
+})</script>
 
   </body>
 </html>
