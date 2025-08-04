@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,11 +21,13 @@
         class="logo"
       />
 
-      <h2>Confirm Your Consent</h2>
+      <h2>Supplier Registration Consent</h2>
       <p>
-        We value your privacy. By providing consent, you allow us to process
-        your data responsibly for recruitment purposes while safeguarding your
-        rights. View our
+        To process your supplier registration, QAPCO collects and uses personal
+        and business information such as contact details, company documents, and
+        compliance records. Your data will be used only for registration, due
+        diligence, legal compliance, and future procurement communication. For
+        details on how we use and protect your data. View our
         <span class="open-pdf">Privacy Policy</span>
         for details.
       </p>
@@ -33,7 +36,7 @@
         <label for="email">Email Address</label>
         <p class="helper-text">
           <span class="material-icons info-icon">info</span>
-          This email address must match the one you plan to use during Candidate
+          This email address must match the one you plan to use during Supplier
           Registration in the next step.
         </p>
 
@@ -69,7 +72,7 @@
         </div>
 
         <button type="submit" id="submitBtn" disabled>
-          Continue to Candidate Registration
+          Continue to Supplier Registration
         </button>
       </form>
     </div>
@@ -89,7 +92,7 @@
         <h3>Consent Required</h3>
         <p>
           We respect your privacy choices. Without your consent, we are unable
-          to create a candidate profile or proceed with registration.<br /><br />
+          to create a Supplier profile or proceed with registration.<br /><br />
           To continue, please review our privacy policy and confirm acceptance
           of our data processing terms.
         </p>
@@ -132,7 +135,7 @@
             declineModal.style.display = "block";
           } else {
             window.location.href =
-              "https://career012.successfactors.eu/career?company=qatarpetroP";
+              "https://qapco.supplier-eu.ariba.com/ad/register/SSOActions?type=full";
           }
         });
 
@@ -166,38 +169,6 @@
     </script>
 
     <!-- Securiti SDK -->
-    <script src="https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js"></script>
-    <script>
-      window.addEventListener("load", function () {
-        FormConsentSDK.initialize({
-          codeGenMetadata: {
-            formPropertyId: "6",
-            formSelector: '[id*="registrationForm"]',
-            subjectIdentifiers: [
-              {
-                name: "Email Address",
-                selector: '[name = "email"]',
-                isPrimary: true,
-              },
-            ],
-            consentIdentifiers: [
-              {
-                type: "radio",
-                name: "consent",
-                selector: '[name = "consent"]',
-                propertyId: 92,
-                consentValue: "accept",
-              },
-            ],
-            consentTrigger: { action: "submit", selector: "" },
-          },
-          url: "https://app.eu.securiti.ai/privaci/v1/",
-          authToken: "8c71a8e9-fd17-46f8-aa07-05b0155f9413",
-          orgId: "1",
-          onConsentSuccess: null,
-          onConsentFailure: null,
-        });
-      });
-    </script>
+  
   </body>
 </html>
