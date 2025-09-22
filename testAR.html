@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>English Page</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Cookie Banner -->
+    <script>
+      (function () {
+        var s = document.createElement("script");
+        s.src =
+          "https://cdn-app5.securiti.ai/consent/cookie-consent-sdk-loader.js";
+        s.setAttribute(
+          "data-tenant-uuid",
+          "afd75cd2-cbaa-4d9b-8b84-37598fb2e16f"
+        );
+        s.setAttribute(
+          "data-domain-uuid",
+          "2069caa3-cbfc-4c8a-a16c-b9863288f273"
+        );
+        s.setAttribute("data-backend-url", "https://app5.securiti.ai");
+        s.setAttribute("data-securiti-staging-mode", "true");
+        s.setAttribute("data-skip-css", "false");
+        s.defer = true;
+        s.addEventListener("load", function () {
+          window.setConsentBannerParams({
+            overrideBannerLanguage: {
+              "https://jo-tsaaro.github.io/cookie-site/testAR.html": "ar",
+              "https://jo-tsaaro.github.io/cookie-site/index.html": "en",
+            },
+          });
+          if (
+            window.location.href ===
+            "https://jo-tsaaro.github.io/cookie-site/testAR.html"
+          ) {
+            var style = document.createElement("style");
+            style.innerHTML = `
+                    .cc-compliance .cc-allow {order:3}
+                    .cc-compliance .cc-dismiss {order:2}
+                    .cc-compliance .cmp-pref-link {order:1}
+                `;
+            document.head.appendChild(style);
+          }
+        });
+        var parent_node = document.head || document.body;
+        parent_node.appendChild(s);
+      })();
+    </script>
   </head>
   <body>
     <header>
