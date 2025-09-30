@@ -165,5 +165,38 @@
       });
     </script>
     <!-- Securiti SDK -->
+    <script src="https://cdn-app5.securiti.ai/consent/form-consent-sdk.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    FormConsentSDK.initialize({
+      codeGenMetadata: {
+        formPropertyId: "2",
+        formSelector: '[id*="visitorForm"]',
+        subjectIdentifiers: [
+          {
+            name: "Email Address",
+            selector: '[name = "email"]',
+            isPrimary: true,
+          },
+        ],
+        consentIdentifiers: [
+          {
+            type: "radio",
+            name: "consent",
+            selector: '[name = "consent"]',
+            propertyId: 18110,
+            consentValue: "accept",
+          },
+        ],
+        consentTrigger: { action: "click", selector: '[id = "submitBtn"]' },
+      },
+      url: "https://app5.securiti.ai/privaci/v1/",
+      authToken: "32c9c281-7428-427e-bab7-183bdfebc9d5",
+      orgId: "1",
+      onConsentSuccess: null,
+      onConsentFailure: null,
+    });
+  });
+</script>
   </body>
 </html>
